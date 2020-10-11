@@ -1,0 +1,8 @@
+<launch>
+
+   <node pkg="twist_mux" type="twist_mux" name="twist_mux" output="screen">
+    <rosparam command="load" file="$(find amr_bringup)/config/twist_mux.yaml" />
+    <remap from="cmd_vel_out" to="cmd_vel"/>
+  </node>
+</launch>
+
