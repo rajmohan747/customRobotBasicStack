@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+   
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find amr_gazebo)/worlds/turtlebot3_world.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+ 
+   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find amr_description)/urdf/amr.xacro'" />
+    
+  <arg name="x" default="-2.0"/>
+  <arg name="y" default="-0.5"/>
+  <arg name="z" default="0.0"/>
+    
+    <node name="amr_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param robot_description -model amr -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+  <include file="$(find amr_bringup)/launch/twist_mux.launch"/>
+          
+</launch>

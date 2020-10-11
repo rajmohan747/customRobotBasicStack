@@ -1,0 +1,15 @@
+topics:
+- name    : navigation
+  topic   : navigation/cmd_vel
+  timeout : 0.5
+  priority: 1
+- name    : keyboard
+  topic   : keyboard/cmd_vel
+  timeout : 0.5
+  priority: 20
+
+locks:
+- name    : e_stop
+  topic   : e_stop
+  timeout : 0.0
+  priority: 255
