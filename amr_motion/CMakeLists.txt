@@ -59,3 +59,13 @@ add_executable(amr_motion
 target_link_libraries(amr_motion
   ${catkin_LIBRARIES}
 )
+
+
+add_executable(dummyPublisher
+  src/dummyPublisher.cpp
+
+)
+
+target_link_libraries(dummyPublisher
+  ${catkin_LIBRARIES}
+)
